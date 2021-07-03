@@ -52,10 +52,39 @@ namespace AddressBook
             Console.WriteLine("Enter Zip COde : ");
             person.ZipCode = Convert.ToInt32(Console.ReadLine());
 
-           
+            /*.................................................
+             * adding each person into the list after filling the details 
+             * ........................................................*/
+
+            people.Add(person);
 
         }
         
+        public static void Printdetails(Person person)
+        {
+            Console.WriteLine("First Name :"+person.FirstName);
+            Console.WriteLine("Last Name : "+person.LastName);
 
+            Console.WriteLine("Address : "+person.Address);
+            Console.WriteLine("City :"+person.City);
+            Console.WriteLine("State :"+person.State);
+            Console.WriteLine("Mobile Number :"+person.MobileNumber);
+            Console.WriteLine("Zip Code : "+person.ZipCode);
+
+        }
+
+        public static void PrintList()
+        {
+            if (people.Count == 0)
+            {
+                Console.WriteLine("Address Book is Empty");
+                return;
+            }
+           
+            foreach(var person in people)
+            {
+                Console.WriteLine(person);
+            }
+        }
     }
 }

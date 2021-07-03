@@ -17,6 +17,10 @@ namespace AddressBook
                 case 1:
                     Details.AddPerson();
                     break;
+                case 2:
+                    Details.AddPerson();
+                    Details.PrintList();
+                    break;
                 default:
                     break;
             }
