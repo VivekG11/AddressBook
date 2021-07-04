@@ -29,34 +29,40 @@ namespace AddressBook
 
         public static void AddPerson()
         {
-            Person person = new Person();
+            Console.WriteLine("Enter number of contacts :");
+            int num = Convert.ToInt32(Console.ReadLine());
+            while (num > 0)
+            {
+                Person person = new Person();
 
-            Console.WriteLine("Enter First Name : ");
-            person.firstName = Console.ReadLine();
+                Console.WriteLine("Enter First Name : ");
+                person.firstName = Console.ReadLine();
 
-            Console.WriteLine("Enter Last NAme : ");
-            person.lastName = (Console.ReadLine());
+                Console.WriteLine("Enter Last NAme : ");
+                person.lastName = (Console.ReadLine());
 
-            Console.WriteLine("Enter Address");
-            person.address = Console.ReadLine();
+                Console.WriteLine("Enter Address");
+                person.address = Console.ReadLine();
 
-            Console.WriteLine("Enter City");
-            person.city = Console.ReadLine();
+                Console.WriteLine("Enter City");
+                person.city = Console.ReadLine();
 
-            Console.WriteLine("Enter State");
-            person.state = Console.ReadLine();
+                Console.WriteLine("Enter State");
+                person.state = Console.ReadLine();
 
-            Console.WriteLine("Enter Mobile NUmber :");
-            person.mobileNumber =Convert.ToInt32( Console.ReadLine());
+                Console.WriteLine("Enter Mobile NUmber :");
+                person.mobileNumber = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Enter Zip COde : ");
-            person.zipCode = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Zip COde : ");
+                person.zipCode = Convert.ToInt32(Console.ReadLine());
 
-            /*.................................................
-             * adding each person into the list after filling the details 
-             * ........................................................*/
+                /*.................................................
+                 * adding each person into the list after filling the details 
+                 * ........................................................*/
 
-            people.Add(person);
+                people.Add(person);
+                num--;
+            }
 
         }
         
@@ -104,7 +110,7 @@ namespace AddressBook
             }
             if (flag == 0)
             {
-                Console.WriteLine("Enter valid name ");
+                Console.WriteLine("Enter a valid name ");
             }
 
         }
