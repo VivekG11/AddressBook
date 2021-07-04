@@ -21,6 +21,9 @@ namespace AddressBook
                     Details.AddPerson();
                     Details.PrintList();
                     break;
+                case 3:
+                    Details.RemovePerson();
+                    break;
                 default:
                     break;
             }

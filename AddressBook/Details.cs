@@ -11,13 +11,13 @@ namespace AddressBook
          * ................................*/
         public class Person
         {
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
-            public string Address { get; set; }
-            public string City { get; set; }
-            public string State { get; set; }
-            public int MobileNumber { get; set; }
-            public int ZipCode { get; set; }
+            public string firstName { get; set; }
+            public string lastName { get; set; }
+            public string address { get; set; }
+            public string city { get; set; }
+            public string state { get; set; }
+            public int mobileNumber { get; set; }
+            public int zipCode { get; set; }
 
             
         }
@@ -32,25 +32,25 @@ namespace AddressBook
             Person person = new Person();
 
             Console.WriteLine("Enter First Name : ");
-            person.FirstName = Console.ReadLine();
+            person.firstName = Console.ReadLine();
 
             Console.WriteLine("Enter Last NAme : ");
-            person.LastName = (Console.ReadLine());
+            person.lastName = (Console.ReadLine());
 
             Console.WriteLine("Enter Address");
-            person.Address = Console.ReadLine();
+            person.address = Console.ReadLine();
 
             Console.WriteLine("Enter City");
-            person.City = Console.ReadLine();
+            person.city = Console.ReadLine();
 
             Console.WriteLine("Enter State");
-            person.State = Console.ReadLine();
+            person.state = Console.ReadLine();
 
             Console.WriteLine("Enter Mobile NUmber :");
-            person.MobileNumber =Convert.ToInt32( Console.ReadLine());
+            person.mobileNumber =Convert.ToInt32( Console.ReadLine());
 
             Console.WriteLine("Enter Zip COde : ");
-            person.ZipCode = Convert.ToInt32(Console.ReadLine());
+            person.zipCode = Convert.ToInt32(Console.ReadLine());
 
             /*.................................................
              * adding each person into the list after filling the details 
@@ -62,14 +62,14 @@ namespace AddressBook
         
         public static void Printdetails(Person person)
         {
-            Console.WriteLine("First Name :"+person.FirstName);
-            Console.WriteLine("Last Name : "+person.LastName);
+            Console.WriteLine("First Name :"+person.firstName);
+            Console.WriteLine("Last Name : "+person.lastName);
 
-            Console.WriteLine("Address : "+person.Address);
-            Console.WriteLine("City :"+person.City);
-            Console.WriteLine("State :"+person.State);
-            Console.WriteLine("Mobile Number :"+person.MobileNumber);
-            Console.WriteLine("Zip Code : "+person.ZipCode);
+            Console.WriteLine("Address : "+person.address);
+            Console.WriteLine("City :"+person.city);
+            Console.WriteLine("State :"+person.state);
+            Console.WriteLine("Mobile Number :"+person.mobileNumber);
+            Console.WriteLine("Zip Code : "+person.zipCode);
 
         }
 
@@ -83,8 +83,30 @@ namespace AddressBook
            
             foreach(var person in people)
             {
-                Console.WriteLine(person);
+                Printdetails(person);
             }
+        }
+
+        public static void RemovePerson()
+        {
+            Console.WriteLine("Enter the name of the person you want to remove : ");
+            string removePerson = Console.ReadLine();
+            int flag = 0;
+            foreach(var person in people)
+            {
+                if (removePerson.ToLower() == person.firstName.ToLower())
+                {
+                    people.Remove(person);
+                    Console.WriteLine("Deleted Successfully ");
+                    flag = 1;
+                    break;
+                }
+            }
+            if (flag == 0)
+            {
+                Console.WriteLine("Enter valid name ");
+            }
+
         }
     }
 }
