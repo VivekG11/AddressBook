@@ -24,11 +24,40 @@ namespace AddressBook
         /*...................................................
          * creating a list to store details of people
          * ...........................................*/
-        public static List<Person> people = new List<Person>();
+       public static List<Person> people = new List<Person>();
+
+        public List<Person> People;
+
+        public static Dictionary<string, List<Person>> addressBookDict = new Dictionary<string, List<Person>>();
+
 
 
         public static void AddPerson()
         {
+            string addressBook;
+             string People =Convert.ToString( new List<Person>());
+            while (true)
+            {
+                Console.WriteLine("Enter the name of the Book :");
+                addressBook = Console.ReadLine();
+
+                if (addressBookDict.Count > 0)
+                {
+                    if (addressBookDict.ContainsKey(addressBook))
+                    {
+                        Console.WriteLine("Book already exists");
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+           
             Console.WriteLine("Enter number of contacts :");
             int num = Convert.ToInt32(Console.ReadLine());
             while (num > 0)
