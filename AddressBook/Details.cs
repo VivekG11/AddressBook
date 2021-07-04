@@ -5,7 +5,7 @@ using System.Text;
 namespace AddressBook
 {
     class Details
-    {
+    { 
         /*.....................................
          * Add necessary variables in class
          * ................................*/
@@ -107,6 +107,77 @@ namespace AddressBook
                 Console.WriteLine("Enter valid name ");
             }
 
+        }
+        public static void EditDetails()
+        {
+            int temp = 0;
+            if(people.Count > 0)
+            {
+                Console.WriteLine("Enter the name of person to edit : ");
+                string editName = Console.ReadLine();
+
+                foreach(var person in people)
+                {
+                    if(editName.ToLower() == person.firstName.ToLower())
+                    {
+                        while(true)
+                        {
+                            temp = 0;
+                            Console.WriteLine("1.First Name\n2.Second Name\n3.Adress\n4.City\n5.State\n6.Mobile Number\n7.Zipcode\n8.Exit");
+                            Console.WriteLine("Select an Option :");
+                            switch(Convert.ToInt32(Console.ReadLine()))
+                            {
+                                case 1:
+                                    Console.WriteLine("Enter New First Name :");
+                                    person.firstName = Console.ReadLine();
+                                    break;
+                                case 2:
+                                    Console.WriteLine("Enter new Last Name : ");
+                                    person.lastName = Console.ReadLine();
+                                    break;
+                                case 3:
+                                    Console.WriteLine("Enter new address :");
+                                    person.address = Console.ReadLine();
+                                    break;
+                                case 4:
+                                    Console.WriteLine("Enter new City :");
+                                    person.city = Console.ReadLine();
+                                    break;
+                                case 5:
+                                    Console.WriteLine("Enter new State :");
+                                    person.state = Console.ReadLine();
+                                    break;
+                                case 6:
+                                    Console.WriteLine("Enter new Mobile Number :");
+                                    person.mobileNumber =Convert.ToInt32( Console.ReadLine());
+                                    break;
+                                case 7:
+                                    Console.WriteLine("Enter new ZipCode :");
+                                    person.zipCode =Convert.ToInt32( Console.ReadLine());
+                                    break;
+                                case 8:
+                                    Console.WriteLine("Exit");
+                                    temp = 1;
+                                    break;
+
+                            }
+                            if(temp == 1)
+                            {
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Enter a valid name , It is not in the list.");
+                    }
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Details list is empty ");
+            }
         }
     }
 }

@@ -24,6 +24,9 @@ namespace AddressBook
                 case 3:
                     Details.RemovePerson();
                     break;
+                case 4:
+                    Details.EditDetails();
+                    break;
                 default:
                     break;
             }
