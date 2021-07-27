@@ -2,34 +2,30 @@
 
 namespace AddressBook
 {
-    class Program
+    public class Program
     {
-        
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book ................");
-
+            Console.WriteLine("Enter an option :");
             int option = Convert.ToInt32(Console.ReadLine());
-
             switch (option)
             {
-
                 case 1:
-                    Details.AddPerson();
+
+                    Details.GetDetails();
                     break;
                 case 2:
-                    Details.AddPerson();
+                    Details.GetDetails();
+                    Details.PrintList();
+                    Console.WriteLine("Edit details");
+                    Details.EditDetails();
                     Details.PrintList();
                     break;
-                case 3:
-                    Details.RemovePerson();
-                    break;
-                case 4:
-                    Details.EditDetails();
-                    break;
-                default:
-                    break;
-            }
+
+
+        }
         }
     }
 }
