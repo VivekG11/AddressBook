@@ -6,6 +6,9 @@ namespace AddressBook
 {
     public class Details
     {
+
+        public static Dictionary<string, List<Person>> addressBookDictionary = new Dictionary<string, List<Person>>();
+        
         /*.....................................
          * Add necessary variables in class
          * ................................*/
@@ -21,48 +24,66 @@ namespace AddressBook
 
             
         }
-    
-           
+
+
         /*...................................................
          * creating a list to store details of people
          * ...........................................*/
-        public static List<Person> people = new List<Person>();
+        public static List<Person> people; 
 
         
 
         public static void GetDetails()
         {
-            Console.WriteLine("Enter number of contacts to be inserted :");
-            int num = Convert.ToInt32(Console.ReadLine());
-            //using for loop to iterate over Getting details of contacts
-            for (int i = 1; i <= num; i++)
-            {
-                Person person = new Person();
-                Console.WriteLine("Enter details of contact :");
+            people = new List<Person>();
+            string bookName;
+       
+                Console.WriteLine("Enter the name of the addressbook :");
+                bookName = Console.ReadLine();
+          
+                if (addressBookDictionary.ContainsKey(bookName))
+                {
+                    Console.WriteLine("address book with entered name already exist.");
+                }
+                else
+                {
+                    Console.WriteLine("Enter number of contacts to be inserted :");
+                    int num = Convert.ToInt32(Console.ReadLine());
+                    //using for loop to iterate over Getting details of contacts
 
-                Console.WriteLine("Enter First Name : ");
-                person.firstName = Console.ReadLine();
+                    for (int i = 1; i <= num; i++)
+                    {
 
-                Console.WriteLine("Enter Last NAme : ");
-                person.lastName = (Console.ReadLine());
+                        bookName = Console.ReadLine();
+                        Person person = new Person();
+                        Console.WriteLine("Enter details of contact :");
 
-                Console.WriteLine("Enter Address");
-                person.address = Console.ReadLine();
+                        Console.WriteLine("Enter First Name : ");
+                        person.firstName = Console.ReadLine();
 
-                Console.WriteLine("Enter City");
-                person.city = Console.ReadLine();
+                        Console.WriteLine("Enter Last NAme : ");
+                        person.lastName = (Console.ReadLine());
 
-                Console.WriteLine("Enter State");
-                person.state = Console.ReadLine();
+                        Console.WriteLine("Enter Address");
+                        person.address = Console.ReadLine();
 
-                Console.WriteLine("Enter Mobile NUmber :");
-                person.mobileNumber = Console.ReadLine();
+                        Console.WriteLine("Enter City");
+                        person.city = Console.ReadLine();
 
-                Console.WriteLine("Enter Zip COde : ");
-                person.zipCode = Console.ReadLine();
+                        Console.WriteLine("Enter State");
+                        person.state = Console.ReadLine();
 
-                people.Add(person);
-            }
+                        Console.WriteLine("Enter Mobile NUmber :");
+                        person.mobileNumber = Console.ReadLine();
+
+                        Console.WriteLine("Enter Zip COde : ");
+                        person.zipCode = Console.ReadLine();
+
+                        people.Add(person);
+                    }
+                    addressBookDictionary.Add(bookName, people);
+                }
+            
         }
         public static void Printdetails(Person person)
         {

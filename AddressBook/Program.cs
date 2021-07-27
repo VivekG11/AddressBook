@@ -24,9 +24,11 @@ namespace AddressBook
                     Details.PrintList();
                     break;
                 case 3:
+                    Info.GetDetails();
                     Details.GetDetails();
                     Details.PrintList();
                     Details.RemovePerson();
+
                     Details.PrintList();
                     break;
 
