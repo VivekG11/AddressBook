@@ -15,10 +15,10 @@ namespace AddressBook
             {
 
                 case 1:
-                    Details.AddPerson();
+                    Details.GetDetails();
                     break;
                 case 2:
-                    Details.AddPerson();
+                    Details.GetDetails();
                     Details.PrintList();
                     break;
                 default:
