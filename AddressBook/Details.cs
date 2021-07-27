@@ -129,6 +129,28 @@ namespace AddressBook
                 }
             }
         }
+        public static void RemovePerson()
+        {
+            Console.WriteLine("Enter the name of the person you want to remove : ");
+            string removePerson = Console.ReadLine();
+
+            foreach (var person in people)
+            {
+                if (removePerson.ToLower() == person.firstName.ToLower())
+                {
+                    people.Remove(person);
+                    Console.WriteLine("Deleted Successfully ");
+
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Name does not exist.");
+                }
+            }
+        }
+
+
         public static void PrintList()
         {
             if (people.Count == 0)
