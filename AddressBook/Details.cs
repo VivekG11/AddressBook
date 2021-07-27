@@ -28,34 +28,40 @@ namespace AddressBook
          * ...........................................*/
         public static List<Person> people = new List<Person>();
 
+        
 
         public static void GetDetails()
         {
-            Person person = new Person();
+            Console.WriteLine("Enter number of contacts to be inserted :");
+            int num = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i <= num; i++)
+            {
+                Person person = new Person();
+                Console.WriteLine("Enter details of contact :");
 
-            Console.WriteLine("Enter First Name : ");
-            person.firstName = Console.ReadLine();
+                Console.WriteLine("Enter First Name : ");
+                person.firstName = Console.ReadLine();
 
-            Console.WriteLine("Enter Last NAme : ");
-            person.lastName = (Console.ReadLine());
+                Console.WriteLine("Enter Last NAme : ");
+                person.lastName = (Console.ReadLine());
 
-            Console.WriteLine("Enter Address");
-            person.address = Console.ReadLine();
+                Console.WriteLine("Enter Address");
+                person.address = Console.ReadLine();
 
-            Console.WriteLine("Enter City");
-            person.city = Console.ReadLine();
+                Console.WriteLine("Enter City");
+                person.city = Console.ReadLine();
 
-            Console.WriteLine("Enter State");
-            person.state = Console.ReadLine();
+                Console.WriteLine("Enter State");
+                person.state = Console.ReadLine();
 
-            Console.WriteLine("Enter Mobile NUmber :");
-            person.mobileNumber = Console.ReadLine();
+                Console.WriteLine("Enter Mobile NUmber :");
+                person.mobileNumber = Console.ReadLine();
 
-            Console.WriteLine("Enter Zip COde : ");
-            person.zipCode = Console.ReadLine();
+                Console.WriteLine("Enter Zip COde : ");
+                person.zipCode = Console.ReadLine();
 
-            people.Add(person);
-
+                people.Add(person);
+            }
         }
         public static void Printdetails(Person person)
         {
