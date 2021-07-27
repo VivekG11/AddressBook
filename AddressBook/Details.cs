@@ -35,6 +35,7 @@ namespace AddressBook
 
         public static void GetDetails()
         {
+     
             people = new List<Person>();
             string bookName;
             Console.WriteLine("Enter num of books :");
@@ -59,34 +60,58 @@ namespace AddressBook
                     for (int i = 1; i <= num; i++)
                     {
 
-                        bookName = Console.ReadLine();
                         Person person = new Person();
                         Console.WriteLine("Enter details of contact :");
+                        //validating duplicate entries using first name
+                        while (true)
+                        {
 
-                        Console.WriteLine("Enter First Name : ");
-                        person.firstName = Console.ReadLine();
+                            Console.WriteLine("Enter First Name : ");
+                            string firstName = Console.ReadLine();
+                            if (people.Count <= num)
+                            {
+                                //comparing input with existing contacts
+                                var v = people.Find(x => x.firstName.Equals(firstName));
+                                if (v != null)
+                                {
+                                    Console.WriteLine("Name already exists");
+                                }
+                                else
+                                {
+                                    person.firstName = firstName;
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                person.firstName = firstName;
+                                break;
+                            }
+                        }
 
-                        Console.WriteLine("Enter Last NAme : ");
-                        person.lastName = (Console.ReadLine());
+                            Console.WriteLine("Enter Last NAme : ");
+                            person.lastName = (Console.ReadLine());
 
-                        Console.WriteLine("Enter Address");
-                        person.address = Console.ReadLine();
+                            Console.WriteLine("Enter Address");
+                            person.address = Console.ReadLine();
 
-                        Console.WriteLine("Enter City");
-                        person.city = Console.ReadLine();
+                            Console.WriteLine("Enter City");
+                            person.city = Console.ReadLine();
 
-                        Console.WriteLine("Enter State");
-                        person.state = Console.ReadLine();
+                            Console.WriteLine("Enter State");
+                            person.state = Console.ReadLine();
 
-                        Console.WriteLine("Enter Mobile NUmber :");
-                        person.mobileNumber = Console.ReadLine();
+                            Console.WriteLine("Enter Mobile NUmber :");
+                            person.mobileNumber = Console.ReadLine();
 
-                        Console.WriteLine("Enter Zip COde : ");
-                        person.zipCode = Console.ReadLine();
+                            Console.WriteLine("Enter Zip COde : ");
+                            person.zipCode = Console.ReadLine();
 
-                        people.Add(person);
+                            people.Add(person);
+                        
                     }
                     addressBookDictionary.Add(bookName, people);
+                    
                 }
             }
             
@@ -197,7 +222,7 @@ namespace AddressBook
             {
                 Printdetails(person);
             }
-            Console.WriteLine("Total num of books in dictionary are :"addressBookDictionary.Count);
+            Console.WriteLine("Total num of books in dictionary are :"+addressBookDictionary.Count);
         }
 
 
