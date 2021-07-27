@@ -34,6 +34,7 @@ namespace AddressBook
         {
             Console.WriteLine("Enter number of contacts to be inserted :");
             int num = Convert.ToInt32(Console.ReadLine());
+            //using for loop to iterate over Getting details of contacts
             for (int i = 1; i <= num; i++)
             {
                 Person person = new Person();
