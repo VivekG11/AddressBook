@@ -37,10 +37,15 @@ namespace AddressBook
         {
             people = new List<Person>();
             string bookName;
-       
+            Console.WriteLine("Enter num of books :");
+            int books = Convert.ToInt32(Console.ReadLine());
+
+            for (int j = 1; j <= books; j++)
+            {
+
                 Console.WriteLine("Enter the name of the addressbook :");
                 bookName = Console.ReadLine();
-          
+
                 if (addressBookDictionary.ContainsKey(bookName))
                 {
                     Console.WriteLine("address book with entered name already exist.");
@@ -83,6 +88,7 @@ namespace AddressBook
                     }
                     addressBookDictionary.Add(bookName, people);
                 }
+            }
             
         }
         public static void Printdetails(Person person)
@@ -191,6 +197,7 @@ namespace AddressBook
             {
                 Printdetails(person);
             }
+            Console.WriteLine("Total num of books in dictionary are :"addressBookDictionary.Count);
         }
 
 

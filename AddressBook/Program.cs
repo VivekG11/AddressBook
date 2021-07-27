@@ -19,9 +19,9 @@ namespace AddressBook
                 case 2:
                     Details.GetDetails();
                     Details.PrintList();
-                    Console.WriteLine("Edit details");
-                    Details.EditDetails();
-                    Details.PrintList();
+                   // Console.WriteLine("Edit details");
+                   // Details.EditDetails();
+                  //  Details.PrintList();
                     break;
                 case 3:
                     Info.GetDetails();
@@ -31,9 +31,6 @@ namespace AddressBook
 
                     Details.PrintList();
                     break;
-
-
-
 
             }
         }
