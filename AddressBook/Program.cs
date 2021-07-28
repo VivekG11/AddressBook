@@ -36,6 +36,10 @@ namespace AddressBook
                     Details.SearchByState();
                     Details.PrintList();
                     break;
+                case 5:
+                    Details.GetDetails();
+                    Details.ViewPersons(); 
+                    break;
                 default:
                     Console.WriteLine("Enter valid option");
                     break;

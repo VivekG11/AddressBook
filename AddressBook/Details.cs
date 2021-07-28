@@ -10,6 +10,8 @@ namespace AddressBook
         public static Dictionary<string, List<Person>> addressBookDictionary = new Dictionary<string, List<Person>>();
         //initialising a list to store contacts that are obtained by searching.
         public static List<Person> search = new List<Person>();
+        //initialising a list to store contacts over an area a using city name or state name
+        public static List<Person> view = new List<Person>();
 
         
         /*.....................................
@@ -211,8 +213,8 @@ namespace AddressBook
                 }
             }
         }
-
-        public static void SearchByCity(string cityName, string personName)
+        ////Searching particular contact using city name
+        public static void SearchByCity( )
         {
             if(addressBookDictionary.Count == 0)
             {
@@ -220,9 +222,13 @@ namespace AddressBook
             }
             else
             {
-                foreach(KeyValuePair<string,List<Person>> dictionary in addressBookDictionary)
+                Console.WriteLine("Enter the city name");
+                string cityName = Console.ReadLine();
+                Console.WriteLine("Enter person name :");
+                string personName = Console.ReadLine();
+                foreach (KeyValuePair<string,List<Person>> dictionary in addressBookDictionary)
                 {
-                    search = dictionary.Value.FindAll(x => x.firstName.Equals(personName));
+                    search = dictionary.Value.FindAll(x => x.firstName.Equals(personName)  && x.city.Equals(cityName));
 
                 }
                 foreach(var a in search)
@@ -236,7 +242,75 @@ namespace AddressBook
                 }
             }
         }
+        //Searching particular contact using state name
+        public static void SearchByState()
+        {
+            if (addressBookDictionary.Count == 0)
+            {
+                Console.WriteLine("Address book is empty..");
+            }
+            else
+            {
 
+                Console.WriteLine("Enter the state name :");
+                string stateName  = Console.ReadLine();
+                Console.WriteLine("Enter person name :");
+                string personName = Console.ReadLine();
+
+                foreach (KeyValuePair<string, List<Person>> dictionary in addressBookDictionary)
+                {
+                    search = dictionary.Value.FindAll(x => x.firstName.Equals(personName) && x.city.Equals(stateName));
+
+                }
+                foreach (var a in search)
+                {
+                    Console.WriteLine("Person found");
+
+                }
+                if (search.Count == 0)
+                {
+                    Console.WriteLine("Person not found");
+                }
+            }
+        }
+        //Viewing persons in an area using city name or using state name 
+        public static void ViewPersons()
+        {
+            string cityName1, stateName;
+            Console.WriteLine("Enter a choice to view persons :");
+            int option =Convert.ToInt32(Console.ReadLine());
+            switch(option)
+            {
+                case 1:
+                    Console.WriteLine("Enter City Name :");
+                    cityName1 = Console.ReadLine();
+                    foreach(KeyValuePair<string,List<Person>> dict in addressBookDictionary)
+                    {
+                        view = dict.Value.FindAll(s => s.city.Equals(cityName1));
+                        Console.WriteLine("Persons present in the corresponding city are :");
+                        foreach(var n in view)
+                        {
+                            Console.WriteLine(n.firstName);
+                        }
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("Enter State Name :");
+                    stateName = Console.ReadLine();
+                    foreach (KeyValuePair<string, List<Person>> dict in addressBookDictionary)
+                    {
+                        view = dict.Value.FindAll(s => s.state.Equals(stateName));
+                        Console.WriteLine("Persons present in the corresponding state are :");
+                        foreach (var n in view)
+                        {
+                            Console.WriteLine(n.firstName);
+                        }
+                    }
+                    break;
+
+            }
+        }
+        //Printing details from address book
         public static void PrintList()
         {
             if (people.Count == 0)
