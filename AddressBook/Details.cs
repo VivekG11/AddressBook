@@ -8,6 +8,9 @@ namespace AddressBook
     {
 
         public static Dictionary<string, List<Person>> addressBookDictionary = new Dictionary<string, List<Person>>();
+        //initialising a list to store contacts that are obtained by searching.
+        public static List<Person> search = new List<Person>();
+
         
         /*.....................................
          * Add necessary variables in class
@@ -209,6 +212,30 @@ namespace AddressBook
             }
         }
 
+        public static void SearchByCity(string cityName, string personName)
+        {
+            if(addressBookDictionary.Count == 0)
+            {
+                Console.WriteLine("Address book is empty..");
+            }
+            else
+            {
+                foreach(KeyValuePair<string,List<Person>> dictionary in addressBookDictionary)
+                {
+                    search = dictionary.Value.FindAll(x => x.firstName.Equals(personName));
+
+                }
+                foreach(var a in search)
+                {
+                    Console.WriteLine("The last name of the  person is :"+a.lastName);
+                   
+                }
+                if(search.Count == 0)
+                {
+                    Console.WriteLine("Person not found");
+                }
+            }
+        }
 
         public static void PrintList()
         {

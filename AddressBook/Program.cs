@@ -26,13 +26,14 @@ namespace AddressBook
                 case 3:
                     Info.GetDetails();
                     Details.GetDetails();
-                    Details.PrintList();
                     Details.RemovePerson();
                     Details.PrintList();
                     break;
                 case 4:
                     Console.WriteLine("Adding address books to dictionary.");
                     Details.GetDetails();
+                    Details.SearchByCity();
+                    Details.SearchByState();
                     Details.PrintList();
                     break;
                 default:
