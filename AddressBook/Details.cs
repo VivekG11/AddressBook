@@ -1,17 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AddressBook
 {
     public class Details
     {
+      /*  public int Compare(string x , string y)
+        {
+            if(x == null || y == null)
+            {
+                return 0;
+            }
+
+            return x.CompareTo(y);
+        }*/
 
         public static Dictionary<string, List<Person>> addressBookDictionary = new Dictionary<string, List<Person>>();
         //initialising a list to store contacts that are obtained by searching.
         public static List<Person> search = new List<Person>();
         //initialising a list to store contacts over an area a using city name or state name
         public static List<Person> view = new List<Person>();
+
+          public static List<Person> SortedList = new List<Person>();
 
         
         /*.....................................
@@ -316,6 +328,31 @@ namespace AddressBook
 
             }
         }
+        //displaying details in sorted order
+        public static void SortDetails()
+        {
+            if (addressBookDictionary.Count == 0)
+            {
+                Console.WriteLine("Address Book is Empty");
+                return;
+            }
+            else
+            {
+              
+                foreach(KeyValuePair<string, List<Person>> dict in addressBookDictionary)
+                {
+                    //using lambda function
+                    SortedList = dict.Value.OrderBy(x => x.firstName).ToList();
+                    Console.WriteLine("Details after sorting are :");
+                    foreach(var v in SortedList)
+                    {
+                        Console.WriteLine(v.firstName);
+                    }
+                }
+            }
+
+        }
+    
         //Printing details from address book
         public static void PrintList()
         {
