@@ -276,6 +276,8 @@ namespace AddressBook
         //Viewing persons in an area using city name or using state name 
         public static void ViewPersons()
         {
+           // inserting count variable to display number of persons present in a specific city or state
+            int count = 0;
             string cityName1, stateName;
             Console.WriteLine("Enter a choice to view persons :");
             int option =Convert.ToInt32(Console.ReadLine());
@@ -291,7 +293,9 @@ namespace AddressBook
                         foreach(var n in view)
                         {
                             Console.WriteLine(n.firstName);
+                            count++;
                         }
+                        Console.WriteLine("Number of persons in city are :"+count);
                     }
                     break;
                 case 2:
@@ -304,7 +308,9 @@ namespace AddressBook
                         foreach (var n in view)
                         {
                             Console.WriteLine(n.firstName);
+                            count++;
                         }
+                        Console.WriteLine("Number of persons in state are :" + count);
                     }
                     break;
 
