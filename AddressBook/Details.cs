@@ -352,6 +352,53 @@ namespace AddressBook
             }
 
         }
+        public static void SortEntries()
+        {
+            Console.WriteLine("Enter an option to select sort method");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch(choice)
+            {
+                case 1:
+                    Console.WriteLine("Sorting entries by city name ....");
+                    foreach (KeyValuePair<string, List<Person>> dict in addressBookDictionary)
+                    {
+                        //using lambda function
+                        SortedList = dict.Value.OrderBy(x => x.city).ToList();
+                        Console.WriteLine("Details after sorting are :");
+                        foreach (var c in SortedList)
+                        {
+                            Console.WriteLine(c.firstName+" is from "+c.city);
+                        }
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("Sorting entries by state name ....");
+                    foreach (KeyValuePair<string, List<Person>> dict in addressBookDictionary)
+                    {
+                        //using lambda function
+                        SortedList = dict.Value.OrderBy(x => x.state).ToList();
+                        Console.WriteLine("Details after sorting are :");
+                        foreach (var s in SortedList)
+                        {
+                            Console.WriteLine(s.firstName=" is from "+s.state);
+                        }
+                    }
+                    break;
+                case 3:
+                    Console.WriteLine("Sorting entries by zipcode ....");
+                    foreach (KeyValuePair<string, List<Person>> dict in addressBookDictionary)
+                    {
+                        //using lambda function
+                        SortedList = dict.Value.OrderBy(x => x.zipCode).ToList();
+                        Console.WriteLine("Details after sorting are :");
+                        foreach (var z in SortedList)
+                        {
+                            Console.WriteLine(z.firstName);
+                        }
+                    }
+                    break;
+            }
+        }
     
         //Printing details from address book
         public static void PrintList()

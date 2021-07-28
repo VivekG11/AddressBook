@@ -38,7 +38,8 @@ namespace AddressBook
                     break;
                 case 5:
                     Details.GetDetails();
-                    Details.SortDetails();
+                    Details.SortEntries();
+                   // Details.SortDetails();
                    // Details.ViewPersons(); 
                     break;
                 default:
