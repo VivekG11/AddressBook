@@ -38,9 +38,11 @@ namespace AddressBook
                     break;
                 case 5:
                     Details.GetDetails();
-                    Details.SortEntries();
-                   // Details.SortDetails();
-                   // Details.ViewPersons(); 
+                    Details.SortEntries();                  
+                    break;
+                case 6:
+                    Details.GetDetails();
+                    FileIOOperations.WriteDetails();
                     break;
                 default:
                     Console.WriteLine("Enter valid option");
