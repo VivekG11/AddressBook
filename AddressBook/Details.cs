@@ -404,39 +404,7 @@ namespace AddressBook
                     break;
             }
         }
-      /*  public static void WriteDetails()
-        {
-             string filepath = @"C:\Users\VIVEK\source\repos\AddressBook\AddressBook\Books.txt";
-            string text;
-            try
-            {
-                if (Details.addressBookDictionary.Count > 0)
-                {
-
-                  
-
-                    foreach (KeyValuePair<string, List<Details.Person>> dict in Details.addressBookDictionary)
-                    {
-                        File.AppendAllText(filepath, $"{dict.Key}\n");
-                        foreach (var book in dict.Value)
-                        {
-                            text = $"{book.firstName},{book.lastName},{book.address},{book.city},{book.state},{book.mobileNumber},{book.zipCode}";
-
-                            File.AppendAllText(filepath, text);
-                        }
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Address Book is empty");
-                }
-            }
-            catch (Exception)
-            {
-
-            }
-           
-        }*/
+     
 
         //Printing details from address book
         public static void PrintList()

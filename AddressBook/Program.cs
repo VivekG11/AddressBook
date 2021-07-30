@@ -44,6 +44,10 @@ namespace AddressBook
                     Details.GetDetails();
                     FileIOOperations.WriteDetails();
                     break;
+                case 7:
+                    Details.GetDetails();
+                    JSONOperations.Serialize();
+                    break;
                 default:
                     Console.WriteLine("Enter valid option");
                     break;
